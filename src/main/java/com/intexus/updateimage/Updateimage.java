@@ -26,12 +26,17 @@ public class Updateimage {
       System.out.println("problem reading input");
     }
     String encoded = Base64.getEncoder().encodeToString(ba2);
-    StringSelection stringSelection=new StringSelection(encoded);
+    String comm1 = "<command name=\"updatedocument\">" +
+        "<entity name=\"BARCODES\" image=\"" +
+        encoded +
+        "\" />" +
+        "</command>";
+    StringSelection stringSelection=new StringSelection(comm1);
     Clipboard clipboard=Toolkit.getDefaultToolkit().getSystemClipboard();
     clipboard.setContents(stringSelection,null);
-    System.out.println("CR to end");
-    Scanner scanner = new Scanner(System.in);
-    String response=scanner.nextLine();
-    System.out.println(">>>"+response);
+   // System.out.println("CR to end");
+   // Scanner scanner = new Scanner(System.in);
+   // String response=scanner.nextLine();
+   // System.out.println(">>>"+response);
   }
 }
